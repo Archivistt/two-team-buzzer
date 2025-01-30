@@ -96,7 +96,7 @@ export default function EnterName() {
                             <p style={{ fontWeight: "bold", fontSize: "1.7rem" }}> Team 1: {teamName1} </p>
                             {response1 ? (
                                 <div style={response}>
-                                    <p>please press <span style={{ fontWeight: "bold" }}>enter</span><br /> to test buzzer <br />and lock in your team!</p>
+                                    <p>please press <span style={{ fontWeight: "bold" }}>enter key</span><br /> to test buzzer <br />and lock in your team!</p>
                                 </div>
                             ) : (<p style={{ fontWeight: "bold", fontSize: "1.7rem", marginTop: "20px"}}> READY </p>)}
                             {buttonChange1 ? (
@@ -147,7 +147,7 @@ export default function EnterName() {
                             <p style={{ fontWeight: "bold", fontSize: "1.7rem" }}> Team 2: {teamName2} </p>
                             {response2 ? (
                                 <div style={response}>
-                                    <p>please press <span style={{ fontWeight: "bold" }}>spacebar</span><br /> to test buzzer <br />and lock in your team!</p>
+                                    <p>please press <span style={{ fontWeight: "bold" }}>spacebar key</span><br /> to test buzzer <br />and lock in your team!</p>
                                 </div>
                             ) : (<p style={{ fontWeight: "bold", fontSize: "1.7rem", marginTop: "20px" }}> READY </p>)}
                             {buttonChange2 ? (
@@ -192,9 +192,18 @@ export default function EnterName() {
                 </div>
             </div> {/*END OF PARENT*/}
 
-            <div style={{fontSize: "1.7rem"}}>
-                {readyTeamCount} of two (2) teams are ready!
-                { readyTeamCount == 2 ? (<button>Let's Start</button>) : "" }
+            <div style={{fontSize: "1.7rem", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center"}}>
+                {readyTeamCount} of two (2) teams are ready! <br />
+                Make sure you remember your <b>key!</b>
+                { readyTeamCount == 2 ? (
+                <button 
+                    onClick={() => {
+                        navigate(`/mainGame/${teamName1}/${teamName2}`)
+                    }}
+                    style={inputContainer}>
+                        Let's Start
+                </button>
+                ) : "" }
             </div>
         </>
     );

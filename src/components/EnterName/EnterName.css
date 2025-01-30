@@ -12,3 +12,41 @@
     display: flex;
     justify-content: center;
 }
+
+.container1::before {
+    content: ''; /* Create the pseudo-element */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 50vw;
+    background: rgba(36, 36, 36, 0.8); /* Semi-transparent gray overlay */
+    z-index: 1; /* Ensure the overlay is on top of the background */
+}
+
+.container2::before {
+    content: ''; /* Create the pseudo-element */
+    position: absolute;
+    top: 0;
+    left: 50%;
+    right: 0;
+    bottom: 0;
+    width: 50vw;
+    background: rgba(36, 36, 36, 0.8); /* Semi-transparent gray overlay */
+    z-index: 1; /* Ensure the overlay is on top of the background */
+}
+
+.container1, .container2 {
+    
+    opacity: 0;
+    transition: opacity 0.2s ease; /* Apply smooth transition */
+}
+
+.container1.visible {
+    opacity: 1;
+}
+
+.container2.visible {
+    opacity: 1;
+}
